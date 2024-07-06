@@ -2,4 +2,21 @@
 
 body {
   font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+}
+
+.page-content {
+  margin-left: 200px;
+  padding: 20px;
+  flex-grow: 1;
 }

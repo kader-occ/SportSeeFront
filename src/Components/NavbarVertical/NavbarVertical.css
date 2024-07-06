@@ -1,0 +1,17 @@
+.navbar-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #020203;
+  height: 100vh;
+  width: 117px;
+}
+
+.copyright {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: white;
+  padding: 20px;
+  font-size: 12px;
+}

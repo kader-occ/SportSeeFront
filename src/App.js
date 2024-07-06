@@ -1,7 +1,13 @@
 import "./App.css";
+import NavbarHorizontalComponent from "./Components/NavbarHorizontal/NavbarHorizontalComponent";
 
 function App() {
-  return <h1>SportSee</h1>;
+  return (
+    <>
+      <NavbarHorizontalComponent />
+      <h1>SportSee</h1>
+    </>
+  );
 }
 
 export default App;
