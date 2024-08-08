@@ -14,6 +14,7 @@ const ProfilScreen = () => {
               Bonjour, <span className="text-red">Thomas</span>
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <div className=""></div>
           </div>
         </div>
       </div>
