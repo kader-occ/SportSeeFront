@@ -10,7 +10,10 @@ const ProfilScreen = () => {
         <div className="main-content">
           <NavbarVertical />
           <div className="page-content">
-            <h1>Profil</h1>
+            <h1>
+              Bonjour, <span className="text-red">Thomas</span>
+            </h1>
+            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
         </div>
       </div>
