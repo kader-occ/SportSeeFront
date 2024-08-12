@@ -5,6 +5,7 @@ import "./ProfilScreen.css";
 import apiMockService from "../../Mocks/ApiMockService";
 import ActivityChart from "../../Components/ActivityChart/ActivityChartComponent";
 import CaloriesChart from "../../Components/CalorieChart/CaloriesChartComponent";
+import AverageSessionChartComponent from "../../Components/AverageSessionChart/AverageSessionChartComponent";
 
 const ProfilScreen = () => {
   const [userData, setUserData] = useState(null);
@@ -36,6 +37,7 @@ const ProfilScreen = () => {
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <ActivityChart userId={userId} />
+            <AverageSessionChartComponent userId={userId} />
           </div>
         </div>
       </div>
