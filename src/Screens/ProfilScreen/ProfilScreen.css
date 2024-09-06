@@ -18,3 +18,9 @@
 .header-content p {
   font-size: 18px;
 }
+
+.left-down-content {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

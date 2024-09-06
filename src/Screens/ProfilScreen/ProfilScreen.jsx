@@ -8,12 +8,14 @@ import AverageSessionChartComponent from "../../Components/AverageSessionChart/A
 import CardComponent from "../../Components/CardComponent/CardComponent";
 import apiService from "../../Services/ApiService";
 import { useParams } from "react-router-dom";
+import PerformanceRadarChartComponent from "../../Components/PerformanceRadarChartComponent/PerformanceRadarChartComponent";
+import ScorePieChartComponent from "../../Components/ScorePieChartComponent/ScorePieChartComponent";
 
 const ProfilScreen = () => {
   const [userData, setUserData] = useState(null);
   const params = useParams();
 
-  const userId = params.id;
+  let userId = params.id;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +26,7 @@ const ProfilScreen = () => {
     fetchData();
   }, [userId]);
 
-  console.log(userData);
+  console.log(userId);
 
   if (!userData) {
     return <p>Aucun utilisateur trouvé pour l'ID {userId}</p>;
@@ -47,7 +49,11 @@ const ProfilScreen = () => {
             <div className="page-content">
               <div className="left-content">
                 <ActivityChart userId={userId} />
-                <AverageSessionChartComponent userId={userId} />
+                <div className="left-down-content">
+                  <AverageSessionChartComponent userId={userId} />
+                  <PerformanceRadarChartComponent userId={userId} />
+                  <ScorePieChartComponent userData={userData} />
+                </div>
               </div>
               <div className="right-content">
                 <CardComponent

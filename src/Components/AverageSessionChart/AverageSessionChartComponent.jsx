@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import apiService from "../../Services/ApiService";
+import PropTypes from "prop-types";
 
 const AverageSessionChartComponent = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -52,6 +53,10 @@ const AverageSessionChartComponent = ({ userId }) => {
       </LineChart>
     </ResponsiveContainer>
   );
+};
+
+AverageSessionChartComponent.propTypes = {
+  userId: PropTypes.string,
 };
 
 export default AverageSessionChartComponent;

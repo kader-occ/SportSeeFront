@@ -12,6 +12,7 @@ import {
 import "./ActivityChartComponent.css";
 import CustomTooltip from "../CustomTooltip/CustomTooltipComponent";
 import apiService from "../../Services/ApiService";
+import PropTypes from "prop-types";
 
 const ActivityChartComponent = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -58,6 +59,10 @@ const ActivityChartComponent = ({ userId }) => {
       </BarChart>
     </ResponsiveContainer>
   );
+};
+
+ActivityChartComponent.propTypes = {
+  userId: PropTypes.string,
 };
 
 export default ActivityChartComponent;

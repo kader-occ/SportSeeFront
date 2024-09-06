@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import apiService from "../../Services/ApiService";
+import PropTypes from "prop-types";
 
 const CaloriesChart = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -37,6 +38,10 @@ const CaloriesChart = ({ userId }) => {
       </LineChart>
     </ResponsiveContainer>
   );
+};
+
+CaloriesChart.propTypes = {
+  userId: PropTypes.string,
 };
 
 export default CaloriesChart;

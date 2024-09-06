@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./CardComponent.css";
 
 export const CardComponent = ({ iconPath, data, unite, type }) => {
@@ -13,6 +14,13 @@ export const CardComponent = ({ iconPath, data, unite, type }) => {
       </div>
     </div>
   );
+};
+
+CardComponent.propTypes = {
+  iconPath: PropTypes.string.isRequired,
+  data: PropTypes.number.isRequired,
+  unite: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default CardComponent;
