@@ -1,8 +1,8 @@
 .activity-chart {
   background: #fbfbfb;
-  margin-top: 77px;
   padding: 30px;
 }
-.recharts-default-legend {
-  margin-top: -30px;
+
+.recharts-legend-wrapper {
+  top: -20px !important;
 }

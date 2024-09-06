@@ -9,9 +9,9 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import apiMockService from "../../Mocks/ApiMockService";
 import "./ActivityChartComponent.css";
 import CustomTooltip from "../CustomTooltip/CustomTooltipComponent";
+import apiService from "../../Services/ApiService";
 
 const ActivityChartComponent = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -19,9 +19,8 @@ const ActivityChartComponent = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await apiMockService.getUserSessions(userId);
-        setData(result);
-        console.log(result);
+        const result = await apiService.getUserActivity(userId);
+        setData(result.data.sessions);
       } catch (error) {
         console.error(
           "Erreur de récuperation des données de l'activitée",

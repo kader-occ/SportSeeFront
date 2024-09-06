@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import apiMockService from "../../Mocks/ApiMockService";
+import apiService from "../../Services/ApiService";
 
 const AverageSessionChartComponent = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -17,9 +17,8 @@ const AverageSessionChartComponent = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await apiMockService.getUserAverageSessions(userId);
-        setData(result);
-        console.log(result);
+        const result = await apiService.getUserAverageSessions(userId);
+        setData(result.data.sessions);
       } catch (error) {
         console.error("Erreur de récuperation des données", error);
       }

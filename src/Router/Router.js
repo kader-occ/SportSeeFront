@@ -5,7 +5,7 @@ const Router = () => {
   return (
     <BrowserRouter basename="/">
       <Routes>
-        <Route path="/" element={<ProfilScreen />} />
+        <Route path="/:id" element={<ProfilScreen />} />
       </Routes>
     </BrowserRouter>
   );

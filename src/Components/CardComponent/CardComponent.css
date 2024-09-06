@@ -1,0 +1,37 @@
+.card {
+  width: 258px;
+  height: 124px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.card-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card-infos h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #282d30;
+}
+
+.card-infos p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #74798c;
+}

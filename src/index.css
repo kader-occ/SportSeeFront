@@ -15,9 +15,8 @@ body {
   display: flex;
 }
 
-.page-content {
-  margin-left: 100px;
-  padding: 20px;
+.wrapper {
+  margin: 60px;
   flex-grow: 1;
 }
 

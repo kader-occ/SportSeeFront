@@ -1,36 +1,37 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api";
+//const MOCK_DATA = "./mockData.js";
+const API_END_POINT = "http://localhost:5000";
 
 const apiService = {
   getUserData: async (userId) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/users/${userId}`);
+      const response = await axios.get(`${API_END_POINT}/user/${userId}`);
       return response.data;
     } catch (error) {
-      console.error("Failed to fetch user data", error);
+      console.error("Erreur fetch user data", error);
       throw error;
     }
   },
-  getUserSessions: async (userId) => {
+  getUserActivity: async (userId) => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/users/${userId}/sessions`
+        `${API_END_POINT}/user/${userId}/activity`
       );
       return response.data;
     } catch (error) {
-      console.error("Failed to fetch user sessions", error);
+      console.error("Erreur fetch user data", error);
       throw error;
     }
   },
-  getUserCalories: async (userId) => {
+  getUserAverageSessions: async (userId) => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/users/${userId}/calories`
+        `${API_END_POINT}/user/${userId}/average-sessions`
       );
       return response.data;
     } catch (error) {
-      console.error("Failed to fetch user calories", error);
+      console.error("Erreur fetch user average-sessions", error);
       throw error;
     }
   },

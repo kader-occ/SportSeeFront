@@ -8,7 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import apiMockService from "../../Mocks/ApiMockService";
+import apiService from "../../Services/ApiService";
 
 const CaloriesChart = ({ userId }) => {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ const CaloriesChart = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await apiMockService.getUserCalories(userId);
+        const result = await apiService.getUserCalories(userId);
         setData(result);
       } catch (error) {
         console.error("Error fetching calories data", error);
