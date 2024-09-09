@@ -26,8 +26,6 @@ const ProfilScreen = () => {
     fetchData();
   }, [userId]);
 
-  console.log(userId);
-
   if (!userData) {
     return <p>Aucun utilisateur trouvé pour l'ID {userId}</p>;
   }
@@ -52,7 +50,7 @@ const ProfilScreen = () => {
                 <div className="left-down-content">
                   <AverageSessionChartComponent userId={userId} />
                   <PerformanceRadarChartComponent userId={userId} />
-                  <ScorePieChartComponent userData={userData} />
+                  <ScorePieChartComponent score={userData.todayScore} />
                 </div>
               </div>
               <div className="right-content">

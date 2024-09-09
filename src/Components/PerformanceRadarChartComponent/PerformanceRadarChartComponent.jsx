@@ -4,7 +4,6 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
 import apiService from "../../Services/ApiService";
@@ -19,31 +18,41 @@ const PerformanceRadarChartComponent = (userId) => {
     const fetchData = async () => {
       try {
         const result = await apiService.getUserPerformance(userId);
-        setData(result.data.data);
-        console.log(userId, data);
+        const formattedData = result.data.data.map((item) => ({
+          subject: result.data.kind[item.kind],
+          value: item.value,
+        }));
+        setData(formattedData);
       } catch (error) {
         console.error("Erreur de récuperation des données", error);
       }
     };
-
     fetchData();
   }, [userId]);
 
   return (
-    <ResponsiveContainer width={258} height={263} className="radar-chart">
-      <RadarChart outerRadius={150} data={data}>
-        <PolarGrid />
-        <PolarAngleAxis dataKey="kind" />
-        <PolarRadiusAxis angle={30} domain={[0, 200]} />
-        <Radar
-          name="Performance"
-          dataKey="value"
-          stroke="#ff0101"
-          fill="#ff0101"
-          fillOpacity={0.6}
-        />
-      </RadarChart>
-    </ResponsiveContainer>
+    <div
+      style={{
+        backgroundColor: "#2E2E2E",
+        borderRadius: "10px",
+        padding: "20px",
+        width: "258px",
+      }}
+    >
+      <ResponsiveContainer width={258} height={263}>
+        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
+          <PolarGrid stroke="#fff" />
+          <PolarAngleAxis dataKey="subject" stroke="#fff" />
+          <Radar
+            name="Performance"
+            dataKey="value"
+            stroke="#ff0101"
+            fill="#ff0101"
+            fillOpacity={0.7}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
