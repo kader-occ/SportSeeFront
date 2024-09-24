@@ -3,7 +3,6 @@ import NavbarHorizontalComponent from "../../Components/NavbarHorizontal/NavbarH
 import NavbarVertical from "../../Components/NavbarVertical/NavbarVertical";
 import "./ProfilScreen.css";
 import ActivityChart from "../../Components/ActivityChart/ActivityChartComponent";
-import CaloriesChart from "../../Components/CalorieChart/CaloriesChartComponent";
 import AverageSessionChartComponent from "../../Components/AverageSessionChart/AverageSessionChartComponent";
 import CardComponent from "../../Components/CardComponent/CardComponent";
 import apiService from "../../Services/ApiService";
@@ -22,9 +21,13 @@ const ProfilScreen = () => {
       const data = await apiService.getUserData(userId);
       setUserData(data.data);
     };
-
     fetchData();
   }, [userId]);
+
+  if (userData && userData.hasOwnProperty("todayScore")) {
+    userData.score = userData.todayScore;
+    delete userData.todayScore;
+  }
 
   if (!userData) {
     return <p>Aucun utilisateur trouvé pour l'ID {userId}</p>;
@@ -50,7 +53,7 @@ const ProfilScreen = () => {
                 <div className="left-down-content">
                   <AverageSessionChartComponent userId={userId} />
                   <PerformanceRadarChartComponent userId={userId} />
-                  <ScorePieChartComponent score={userData.todayScore} />
+                  <ScorePieChartComponent score={userData.score} />
                 </div>
               </div>
               <div className="right-content">
